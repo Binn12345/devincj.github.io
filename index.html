@@ -1,133 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Your Name">
+    <meta name="author" content="Arvin Cejalbo">
     <title>Arvin Cejalbo - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f7fa;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f9fc;
             color: #333;
         }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+
         header {
-            background-color: #333;
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        header p {
-            font-size: 1.2em;
-            margin: 10px 0;
-        }
-        section {
+            background-color: #1e1e2f;
+            color: #fff;
             padding: 60px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+
+        section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 20px;
+        }
+
         .section-title {
             text-align: center;
-            font-size: 2em;
-            margin-bottom: 30px;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-weight: 600;
+            color: #1e1e2f;
+        }
+
+
+        .skills,
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skills div,
+        .projects div {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skills div:hover,
+        .projects div:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills div h3,
+        .projects div h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
             color: #333;
         }
-        .skills, .projects {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 20px;
+
+        .skills div p,
+        .projects div p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 15px;
         }
-        .skills div, .projects div {
-            flex: 1 1 45%;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .skills div h3, .projects div h3 {
-            margin-bottom: 10px;
-            font-size: 1.5em;
-        }
-        .skills div p, .projects div p {
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
+
         .project-image {
             max-width: 100%;
+            height: auto;
             border-radius: 8px;
+            transition: transform 0.3s ease;
         }
+
+        .projects div img:hover {
+            transform: scale(1.05);
+        }
+
+
         .contact {
-            background-color: #333;
-            color: white;
-            padding: 40px 20px;
+            background-color: #1e1e2f;
+            color: #fff;
+            padding: 50px 20px;
             text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         }
+
         .contact h2 {
-            font-size: 2em;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
             margin-bottom: 20px;
         }
-        .contact p {
-            font-size: 1.2em;
+
+        .contact a {
+            font-weight: 600;
+            color: #fff;
+            transition: color 0.3s ease;
         }
+
+        .contact a:hover {
+            color: #ff6f61;
+        }
+
+
         footer {
+            background-color: #1e1e2f;
+            color: #fff;
+            padding: 40px 20px;
             text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
+            margin-top: 40px;
         }
+
         footer a {
             color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #0e0d0d;
+        }
+
+
+        .about-me {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .about-me:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+        }
+
+        .about-me .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .about-me .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .about-me .section-title h2:hover {
+            color: #000000;
+        }
+
+        .about-me .section-title h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: #0e0d0d;
+            margin-top: 10px;
+            margin-left: calc(50% - 30px);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .about-me .section-title h2:hover::after {
+            width: 100px;
+
+        }
+
+        .about-me p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            font-weight: 400;
+            text-align: justify;
+            margin-bottom: 20px;
+            padding: 0 20px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .about-me p:hover {
+            color: #333;
+            cursor: pointer;
+
+        }
+
+        .about-me p strong {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .about-me p em {
+            font-style: italic;
+            color: #777;
+        }
+
+        .tech-stack {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .tech-stack .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tech-stack .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .tech-stack .section-title h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: #0e0d0d;
+            margin-top: 10px;
+            margin-left: calc(50% - 30px);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .tech-stack .section-title h2:hover {
+            color: #0e0d0d;
+        }
+
+        .tech-stack .section-title h2:hover::after {
+            width: 100px;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+            margin-bottom: 50px;
+        }
+
+        .skill {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .skill h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .skill p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill:hover h3 {
+            color: #0e0d0d;
+
+        }
+
+        .skill:hover p {
+            color: #333;
+
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.8rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            .about-me .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .about-me p {
+                font-size: 1rem;
+                padding: 0;
+            }
+
+            .skills div,
+            .projects div {
+                padding: 20px;
+            }
+
+            .contact {
+                padding: 30px 20px;
+            }
+
+            .tech-stack .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .skill {
+                padding: 15px;
+            }
         }
     </style>
 </head>
+
 <body>
+
 
     <header>
         <h1>Arvin Cejalbo</h1>
-        <p>Web Developer | Designer | Creator</p>
+        <p>Web Developer</p>
     </header>
 
-    <section>
+
+    <section class="about-me">
         <div class="section-title">
             <h2>About Me</h2>
         </div>
-        <p>Hello! I'm [Your Name], a passionate web developer with a strong background in front-end and back-end development. I create responsive, user-friendly websites and applications with a focus on performance and clean code. I am always eager to learn and keep up-to-date with the latest web technologies.</p>
+        <p>
+            I am a passionate and results-driven web developer with extensive experience in both front-end and back-end
+            technologies. I specialize in building responsive, scalable, and user-friendly web applications that provide
+            outstanding performance and exceptional user experiences.
+
+            I have a deep commitment to writing clean, maintainable code and following best practices to deliver
+            high-quality solutions. Whether it's crafting a visually stunning interface using React or optimizing
+            server-side performance, I approach every challenge with a mindset of efficiency and innovation.
+
+            Beyond my technical expertise, I am a continuous learner who stays ahead of industry trends and embraces the
+            latest tools and frameworks. I am skilled in integrating modern tools like Version Control (Git), CI/CD, and
+            Agile methodologies to ensure smooth and efficient development workflows.
+
+            Throughout my career, I have consistently demonstrated the ability to collaborate effectively with
+            cross-functional teams, including designers, project managers, and clients, to deliver solutions that exceed
+            expectations. I pride myself on my problem-solving skills and my ability to translate business requirements
+            into technical specifications.
+
+            My passion for technology extends beyond just coding; I strive to build solutions that solve real-world
+            problems. I am always looking for ways to improve user experiences, whether through performance
+            optimization, better accessibility, or intuitive design.
+
+            If you're looking for a driven developer with a proven track record of success, I would love the opportunity
+            to contribute to your team and help bring your vision to life.
+        </p>
     </section>
 
-    
-    <section>
+
+
+    <section class="tech-stack">
         <div class="section-title">
-            <h2>Skills</h2>
+            <h2>Tech Stack</h2>
         </div>
         <div class="skills">
-            <div>
-                <h3>HTML</h3>
-                <p>Proficient in writing clean, semantic HTML5 code.</p>
+            <div class="skill">
+                <h3>HTML5</h3>
+                <p>Proficient in writing semantic HTML5 code to build robust and accessible websites.</p>
             </div>
-            <div>
-                <h3>CSS</h3>
-                <p>Expert in styling responsive and visually appealing websites using CSS3 and Flexbox/Grid.</p>
+            <div class="skill">
+                <h3>CSS3</h3>
+                <p>Expert in modern CSS, including Flexbox, Grid, animations, and responsive design.</p>
             </div>
-            <div>
+            <div class="skill">
                 <h3>JavaScript</h3>
-                <p>Strong knowledge of JavaScript for building interactive web applications.</p>
+                <p>Advanced knowledge of JavaScript for creating interactive and dynamic web applications.</p>
             </div>
-            <div>
+            <div class="skill">
                 <h3>React</h3>
-                <p>Experienced in building modern, dynamic UIs with React.js and hooks.</p>
+                <p>Experienced in building dynamic UIs with React.js, React Hooks, and component-based architecture.</p>
+            </div>
+            <div class="skill">
+                <h3>PHP</h3>
+                <p>Experienced in building dynamic, data-driven websites and web applications using PHP.</p>
+            </div>
+            <div class="skill">
+                <h3>Laravel</h3>
+                <p>Skilled in building full-stack applications with Laravel, following MVC architecture and utilizing
+                    Eloquent ORM.</p>
+            </div>
+            <div class="skill">
+                <h3>CodeIgniter</h3>
+                <p>Proficient in developing fast and secure applications using CodeIgniter's lightweight framework.</p>
             </div>
         </div>
     </section>
+
+
+
 
     <section>
         <div class="section-title">
@@ -138,31 +468,36 @@
                 <h3>Project 1</h3>
                 <img src="project1.jpg" alt="Project 1" class="project-image">
                 <p>A brief description of the project, the tools used, and the outcome.</p>
-                <a href="https://link-to-project.com" target="_blank">View Project</a>
+                <a href="#" target="_blank">View Project</a>
             </div>
             <div>
                 <h3>Project 2</h3>
                 <img src="project2.jpg" alt="Project 2" class="project-image">
                 <p>A brief description of the project, the tools used, and the outcome.</p>
-                <a href="https://link-to-project.com" target="_blank">View Project</a>
+                <a href="#" target="_blank">View Project</a>
             </div>
         </div>
     </section>
 
+
     <section class="contact">
         <div>
             <h2>Contact Me</h2>
-            <p>If you're interested in working together or just want to chat, feel free to reach out to me via email or follow me on social media!</p>
-            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+            <p>If you'd like to collaborate on a project or just want to chat, feel free to reach out!</p>
+            <p>Email: <a href="mailto:vincejalbo@gmail.com">vincejalbo@gmail.com</a></p>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
-        <a href="https://www.linkedin.com/in/yourname" target="_blank">LinkedIn</a> |
-        <a href="https://github.com/yourname" target="_blank">GitHub</a> |
-        <a href="https://twitter.com/yourname" target="_blank">Twitter</a>
-    </footer>
 
+    <footer>
+        <p>&copy; <span id="year"></span> Arvin Cejalbo. All rights reserved.</p>
+        <a href="#" target="_blank">LinkedIn</a> |
+        <a href="https://https://github.com/Binn12345" target="_blank">GitHub</a> |
+        <a href="#" target="_blank">Twitter</a>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
+
 </html>
